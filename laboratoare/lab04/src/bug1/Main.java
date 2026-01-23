@@ -15,7 +15,7 @@ public class Main {
 			MyThread.value = 0;
 			for (int i = 0; i < 2; i++) {
 				threads[i] = new Thread(new MyThread());
-				threads[i].run();
+				threads[i].run();//bug modificado .run() por start()
 			}
 			for (int i = 0; i < 2; i++) {
 				try {
