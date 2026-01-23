@@ -5,7 +5,8 @@ package bug4;
  * Fix the problem changing a single line of code.
  */
 public class Main extends Thread {
-    boolean keepRunning = true;
+    
+    volatile boolean keepRunning = true; //Bug 4 el programa no termina porque hay un problema de visibilidad de memoria entre threads
 
     public void run() {
         long count = 0;

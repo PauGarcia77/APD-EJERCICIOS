@@ -15,7 +15,8 @@ public class Singleton {
 
     }
 
-    public static Singleton getInstance() {
+    public static synchronized Singleton getInstance(){//Bug 6, añadir synchronized al método getInstance() 
+    // para evitar que múltiples threads creen varias instancias del Singleton simultáneamente
         if (instance == null) {
             System.out.println("Creating only one instance");
             instance = new Singleton();

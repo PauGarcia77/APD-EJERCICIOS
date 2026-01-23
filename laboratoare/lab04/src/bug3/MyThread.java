@@ -8,7 +8,7 @@ package bug3;
  */
 public class MyThread implements Runnable {
     static final String a = "LOCK";
-    static final String b = "LOCK";
+    static final String b = new String("LOCK");//Bug para obtener una race condition, necesitas que a y b sean objetos diferentes
     int id;
     static int value = 0;
 

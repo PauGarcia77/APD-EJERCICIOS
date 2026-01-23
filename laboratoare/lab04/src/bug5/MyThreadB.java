@@ -12,15 +12,17 @@ public class MyThreadB implements Runnable {
 
     @Override
     public void run() {
-        synchronized (Main.lockB) {
+        //Bug 5 cambio el orden, primero lockA, luego lockB para que sea igual que MyThreadA)
+        synchronized (Main.lockA) {
             for (int i = 0; i < Main.N; i++) {
-                Main.valueB++;
+                Main.valueA++;
             }
-            synchronized (Main.lockA) {
+            synchronized (Main.lockB) {
                 for (int i = 0; i < Main.N; i++) {
-                    Main.valueA++;
+                    Main.valueB++;
                 }
             }
         }
     }
 }
+

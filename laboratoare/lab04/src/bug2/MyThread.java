@@ -11,10 +11,10 @@ public class MyThread implements Runnable {
 
     @Override
     public void run() {
-        synchronized (this) {
-            synchronized (this) {
-                i++;
-            }
+        synchronized (MyThread.class) {
+            i++;
         }
     }
+
+    //El bug es que en la clase MyThread probablemente imprimirá 0 en lugar de 1
 }
